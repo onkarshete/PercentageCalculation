@@ -1,0 +1,102 @@
+/*
+    --> This is my first Repository and small project on Github.com with
+    -->This is percentage calculation software.
+    --> I've make this simply software in C++ (Object Oriented Programming)
+    --> This software will Calculate total and percentage of the subjects.
+    --> How got this idea? My brother has recently done his 10th Board Exam.
+         suddenly I got an simple idea , how the board employee(software engineer's )
+         has calculated this mark in best of 5 system.
+         Fun to hear that... they are going to calculated individual student..!
+    --> Then suddenly I came to realize that how they are filter the marks...!
+    --> Then that idea gonna towards little software.
+    --> This is not a big software but It's going to little part of Repository of github.com
+    --> This simply software has use for gathering the total marks and percentage of subjects..!
+*/
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+int main()
+{
+    int s1,s2,s3,s4,s5,s6,i,j;
+    cout<<"\n # # # # # # # # # # # # # # # # # # # # # # # # # # #  # # ";
+    cout<<"\n\n ::     *** Best of 5 marks calculation Software ***     ::";
+    cout<<"\n\n# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ";
+    cout<<"\n\n Enter your all subjects Marks\n";                                         // here user will enter the all subject marks
+    cout<<"\n --> Marathi=";
+    cin>>s1;
+    cout<<"\n --> English=";
+    cin>>s2;
+    cout<<"\n --> Hindi=";
+    cin>>s3;
+    cout<<"\n --> Science=";
+    cin>>s4;
+    cout<<"\n -->Mathematics=";
+    cin>>s5;
+    cout<<"\n --> Social Science=";
+    cin>>s6;                                                               // Here  is all subjects marks getting has done
+    int a[]={s1,s2,s3,s4,s5,s6};                                // Here user enter marks has come in an array
+    int length,temp,total=0;
+    float percentage;
+    length=sizeof(a) / sizeof(int);                     // It'll calculate the how many subject has enter (6);
+
+    for(i=0;i<length-1;i++)
+	{
+		for(j=0;j<length-1 ;j++)
+		{
+			if(a[j] > a[j+1])
+			{
+				temp=a[j];
+				a[j]=a[j+1];
+				a[j+1]=temp;
+			}
+		}
+	}                                                           // I've use bubble sort here to filter out them lower marks form entire subject
+    for(i=1;i<length;i++)                           // Here is index start from 1 Because lower mark came to first will dismissed
+    {                                                           //  here it will consider only well marks
+        total = total + a[i];
+    }
+    percentage = (float)total / 5;              // here is percentage will get
+    cout<<"\n___________________________________"<<"\n\n : :     ** Mark List ***      : :"<<"\n___________________________________";
+    cout<<"\n\n :: ----> Total Marks= "<<total;
+    cout<<"\n :: ----> Percentage= "<<(float)percentage<<"%";
+
+    return 0;
+}
+/*
+    Who can use this simple software? It uses by any standard student who have Best of 5 Marking system.
+    . >>>OUTPUT
+
+
+ # # # # # # # # # # # # # # # # # # # # # # # # # # #  # #
+
+ ::     *** Best of 5 marks calculation Software ***     ::
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+ Enter your all subjects Marks
+
+ --> Marathi=79
+
+ --> English=87
+
+ --> Hindi=91
+
+ --> Science=83
+
+ -->Mathematics=89
+
+ --> Social Science=88
+
+___________________________________
+
+ : :     ** Mark List ***      : :
+___________________________________
+
+ :: ----> Total Marks= 438
+ :: ----> Percentage= 87.6%
+
+Process returned 0 (0x0)   execution time : 23.806 s
+Press any key to continue.
+
+*/
